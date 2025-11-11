@@ -54,9 +54,9 @@
                 {
                     "colorizeDistroLogo": false,
                     "customIconPath": "",
-                    "icon": "noctalia",
+                    "icon": "",
                     "id": "ControlCenter",
-                    "useDistroLogo": false
+                    "useDistroLogo": true
                 },
                 {
                     "colorizeIcons": true,
