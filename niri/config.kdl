@@ -9,8 +9,7 @@ input {
     }
 
     mouse {
-        accel-speed 0
-        accel-profile "flat"
+        accel-speed -0.8
     }
 }
 output "DP-1" {
@@ -34,7 +33,6 @@ layout {
     gaps 5
     center-focused-column "never"
 
-    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
         proportion 0.5
         proportion 0.5
