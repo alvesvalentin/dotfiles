@@ -1,0 +1,114 @@
+prefer-no-csd
+
+input {
+    keyboard {
+        repeat-delay 200
+        repeat-rate 35
+
+        numlock
+    }
+
+    mouse {
+        accel-speed 0
+        accel-profile "flat"
+    }
+}
+output "DP-1" {
+//    hot-corners {
+//        off
+//    }
+    focus-at-startup
+    mode "1920x1080"
+    position x=0 y=0
+}
+
+output "HDMI-A-1" {
+//    hot-corners {
+//        off
+//    }
+    mode "1920x1080"
+    position x=1920 y=0
+}
+
+layout {
+    gaps 5
+    center-focused-column "never"
+
+    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    preset-column-widths {
+        proportion 0.5
+        proportion 0.5
+    }
+
+    default-column-width { proportion 1.0; }
+
+    focus-ring {
+        width 4
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+    }
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot - %Y-%m-%d %H-%M-%S.png"
+
+window-rule {
+    open-maximized true
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+D hotkey-overlay-title="Run an Application: Noctalia Launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: Noctalia" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Q repeat=false { close-window; }
+    Mod+F hotkey-overlay-title="Open File Manager" { spawn "nautilus"; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-workspace-down; }
+    Mod+Up    { focus-workspace-up; }
+    Mod+Right { focus-column-right; }
+
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Right { move-column-right; }
+
+    Mod+Shift+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Right { move-column-to-monitor-right; }
+
+    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+     
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    Print { screenshot; }
+    Ctrl+Mod+P { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    Ctrl+Alt+Delete { quit; }
+
+    Mod+Shift+P { power-off-monitors; }
+}
