@@ -74,6 +74,7 @@ binds {
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
     Mod+F hotkey-overlay-title="Open File Manager" { spawn "nautilus"; }
+    Mod+B hotkey-overlay-title="Open Browser" { spawn "firefox"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-workspace-down; }
