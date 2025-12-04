@@ -19,6 +19,12 @@ input {
     }
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 output "DP-1" {
     focus-at-startup
     mode "1920x1080"
@@ -56,7 +62,7 @@ hotkey-overlay {
 screenshot-path "~/Pictures/Screenshots/Screenshot - %Y-%m-%d %H-%M-%S.png"
 
 window-rule {
-    open-maximized true
+    maximize-window-to-edges true
     geometry-corner-radius 10
     clip-to-geometry true
 }
