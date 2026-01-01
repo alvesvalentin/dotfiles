@@ -1,8 +1,8 @@
 prefer-no-csd
 
+include "./noctalia.kdl"
+
 input {
-    focus-follows-mouse
-    
     keyboard {
         repeat-delay 200
         repeat-rate 35
@@ -15,7 +15,7 @@ input {
     }
 
     mouse {
-        accel-speed -0.8
+        accel-speed -1
     }
 }
 
@@ -48,7 +48,7 @@ layout {
     default-column-width { proportion 1.0; }
 
     focus-ring {
-        width 4
+        width 2
         active-color "#7fc8ff"
         inactive-color "#505050"
     }
@@ -62,7 +62,7 @@ hotkey-overlay {
 screenshot-path "~/Pictures/Screenshots/Screenshot - %Y-%m-%d %H-%M-%S.png"
 
 window-rule {
-    maximize-window-to-edges true
+    open-maximized-to-edges true
     geometry-corner-radius 10
     clip-to-geometry true
 }
@@ -74,8 +74,8 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: Noctalia Launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: Noctalia" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+ -l 1"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
@@ -83,8 +83,6 @@ binds {
     Mod+Q repeat=false { close-window; }
     Mod+F hotkey-overlay-title="Open File Manager" { spawn "nautilus"; }
     Mod+B hotkey-overlay-title="Open Browser" { spawn "firefox"; }
-
-    //Mod+MouseLeft { action-move-window; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-workspace-down; }
